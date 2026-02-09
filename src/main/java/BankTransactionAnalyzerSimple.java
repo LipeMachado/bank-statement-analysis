@@ -5,10 +5,10 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class BankTransactionAnalyzerSimple {
-    private static final String RESOURCES = "/src/main/resources/";
+    private static final String RESOURCES = "src/main/resources/";
 
     public static void main(final String... args) throws IOException {
-        final Path path = Paths.get(RESOURCES + args[0]);
+        final Path path = Paths.get(RESOURCES, args[0]);
         final List<String> lines = Files.readAllLines(path);
         double total = 0d;
         for(final String line: lines) {
@@ -16,6 +16,6 @@ public class BankTransactionAnalyzerSimple {
             final double amount = Double.parseDouble(columns[1]);
             total += amount;
         }
-        IO.println("The total for all transactions in January is " + total);
+        System.out.println("The total for all transactions in January is " + total);
     }
 }
